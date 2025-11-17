@@ -1,0 +1,66 @@
+app:
+  name: "demo-service"
+  version: "1.0.0"
+  environment: "development"
+
+server:
+  host: "0.0.0.0"
+  port: 8080
+  log_level: "info"
+
+database:
+  enabled: true
+  type: "postgres"
+  host: "db.example.local"
+  port: 5432
+  username: "app_user"
+  password: "supersecret"
+  database: "app_db"
+  pool:
+    max_connections: 20
+    min_connections: 2
+    timeout_seconds: 30
+
+features:
+  enable_cache: true
+  enable_metrics: true
+  enable_debug_routes: false
+
+cache:
+  provider: "redis"
+  host: "redis.internal"
+  port: 6379
+  ttl_seconds: 3600
+
+security:
+  cors:
+    allowed_origins:
+      - "https://example.com"
+      - "http://localhost:3000"
+    allowed_methods:
+      - "GET"
+      - "POST"
+      - "PUT"
+      - "DELETE"
+  jwt:
+    enabled: true
+    secret_key: "your-jwt-secret"
+    expiration_minutes: 60
+
+logging:
+  format: "json"
+  file:
+    enable_file_log: true
+    path: "/var/log/demo-service/app.log"
+    rotation:
+      max_size_mb: 100
+      backup_count: 3
+
+jobs:
+  cleanup_job:
+    enabled: true
+    schedule: "0 */6 * * *"   # alle 6 Stunden
+  email_job:
+    enabled: false
+    schedule: "*/5 * * * *"   # alle 5 Minuten
+
