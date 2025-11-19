@@ -1,0 +1,78 @@
+llm_insights:
+  chatbot_summary:
+    id: "01"
+    type: string
+    businessDescription: "Concise conversation's summary between client and bot"
+    description: "Provide a summary of the interaction with key points, without PII."
+    example: "The customer asked about their mobile data usage and how to increase the limit."
+
+  transfer_request:
+    id: "02"
+    type: string
+    businessDescription: "Client request, need or problem that led to transfer"
+    description: "Identify the specific issue that required escalation."
+    example: "Customer needed support to activate roaming for prepaid, which bot could not complete."
+
+  bot_transfer_reason:
+    id: "03"
+    type: string
+    businessDescription: "Why was the bot not helpful?"
+    description: "Concrete explanation of limitation that caused escalation."
+    example: "Bot could not access prepaid roaming activation system."
+
+  transfer_category:
+    id: "10"
+    type: enum
+    businessDescription: "Categorical reason for transfer"
+    description: "Classification of how the transfer occurred."
+    allowedValues:
+      - direct_transfer_initiated
+      - transfer_offered
+      - transfer_after_solution_attempt
+      - direct_agent_requested
+    example: "transfer_after_solution_attempt"
+
+  bot_identified_entities:
+    id: "12"
+    type: list_of_strings
+    businessDescription: "Recognized non-PII entities (products, features)"
+    description: "Identify important contextual entities except PII (names, dates, money)."
+    example:
+      - "prepaid"
+      - "roaming"
+      - "mobile data package"
+
+  multiple_subjects_with_bot:
+    id: "07"
+    type: boolean
+    businessDescription: "Multiple topics in bot conversation?"
+    description: "Determine whether several issues were discussed."
+    example: true
+
+  communication_misalignment:
+    id: "08"
+    type: boolean
+    businessDescription: "Misunderstandings?"
+    description: "Indicates irrelevant or incoherent bot ↔ customer interactions."
+    example: false
+
+  subjects_resolved_before_transfer:
+    id: "09"
+    type: boolean
+    businessDescription: "Was anything solved before transfer?"
+    description: "Did the bot manage to resolve any concern?"
+    example: true
+
+  bot_engagement:
+    id: "11"
+    type: boolean
+    businessDescription: "Did bot try to help?"
+    description: "Bot acknowledged problem and tried before transfer."
+    example: true
+
+  bot_answer_pertinence:
+    id: "13"
+    type: boolean
+    businessDescription: "Was the response relevant?"
+    description: "Check whether bot’s answer was suitable and aligned with request."
+    example: false
