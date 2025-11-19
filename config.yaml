@@ -1,67 +1,50 @@
-app:
-  name: "demo-service"
-  version: "1.0.0"
-  environment: "development"
+flows:
+  - flowName: activate_value_added_services
+    oldNew: NEW
+    flowGroup: Automation
+    comments: ""
 
-server:
-  host: "0.0.0.0"
-  port: 8080
-  log_level: "info"
+  - flowName: adjust_payment_limit
+    oldNew: OLD
+    flowGroup: Billing
+    comments: "Name changed in v2.1"
 
-database:
-  enabled: true
-  type: "postgres"
-  host: "db.example.local"
-  port: 5432
-  username: "app_user"
-  password: "supersecret"
-  database: "app_db"
-  pool:
-    max_connections: 20
-    min_connections: 2
-    timeout_seconds: 30
+  - flowName: customer_address_update
+    oldNew: NEW
+    flowGroup: CRM
+    comments: ""
 
-features:
-  enable_cache: true
-  enable_metrics: true
-  enable_debug_routes: false
+  - flowName: sim_block
+    oldNew: NEW
+    flowGroup: Automation
+    comments: "Fixed after August release"
 
-cache:
-  provider: "redis"
-  host: "redis.internal"
-  port: 6379
-  ttl_seconds: 3600
+  - flowName: service_restart_request
+    oldNew: OLD
+    flowGroup: Support
+    comments: "Mapping compatibility restored"
 
-security:
-  cors:
-    allowed_origins:
-      - "https://example.com"
-      - "http://localhost:3000"
-    allowed_methods:
-      - "GET"
-      - "POST"
-      - "PUT"
-      - "DELETE"
-  jwt:
-    enabled: true
-    secret_key: "your-jwt-secret"
-    expiration_minutes: 60
+  - flowName: broadband_issue_report
+    oldNew: NEW
+    flowGroup: Assurance
+    comments: ""
 
-logging:
-  format: "json"
-  file:
-    enable_file_log: true
-    path: "/var/log/demo-service/app.log"
-    rotation:
-      max_size_mb: 100
-      backup_count: 3
+  - flowName: mobile_data_limit_reset
+    oldNew: NEW
+    flowGroup: Automation
+    comments: ""
 
-jobs:
-  cleanup_job:
-    enabled: true
-    schedule: "0 */6 * * *"   # alle 6 Stunden
-  email_job:
-    enabled: false
-    schedule: "*/5 * * * *"   # alle 5 Minuten
+  - flowName: order_tracking_status
+    oldNew: OLD
+    flowGroup: Logistics
+    comments: "Deprecated soon"
 
-#this is a test commit
+  - flowName: voicemail_pin_reset
+    oldNew: NEW
+    flowGroup: Automation
+    comments: ""
+
+  - flowName: device_setup_guide
+    oldNew: NEW
+    flowGroup: SelfCare
+    comments: ""
