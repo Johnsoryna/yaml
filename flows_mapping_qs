@@ -1,0 +1,50 @@
+flows:
+  - flowName: activate_value_added_services
+    oldNew: NEW
+    flowGroup: Automation
+    comments: ""
+
+  - flowName: adjust_payment_limit
+    oldNew: OLD
+    flowGroup: Billing
+    comments: "Name changed in v2.1"
+
+  - flowName: customer_address_update
+    oldNew: NEW
+    flowGroup: CRM
+    comments: ""
+
+  - flowName: sim_block
+    oldNew: NEW
+    flowGroup: Automation
+    comments: "Fixed after August release"
+
+  - flowName: service_restart_request
+    oldNew: OLD
+    flowGroup: Support
+    comments: "Mapping compatibility restored"
+
+  - flowName: broadband_issue_report
+    oldNew: NEW
+    flowGroup: Assurance
+    comments: ""
+
+  - flowName: mobile_data_limit_reset
+    oldNew: NEW
+    flowGroup: Automation
+    comments: ""
+
+  - flowName: order_tracking_status
+    oldNew: OLD
+    flowGroup: Logistics
+    comments: "Deprecated soon"
+
+  - flowName: voicemail_pin_reset
+    oldNew: NEW
+    flowGroup: Automation
+    comments: ""
+
+  - flowName: device_setup_guide
+    oldNew: NEW
+    flowGroup: SelfCare
+    comments: ""
